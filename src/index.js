@@ -1,6 +1,5 @@
-const Koa = require('koa')
-const app = new Koa()
+const Auth = require('./modules/auth')
 
-require('./utils/init')(app)
-
-module.exports = app
+module.exports = {
+  Auth
+}
