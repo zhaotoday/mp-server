@@ -7,8 +7,32 @@ module.exports = class Auth {
     this.secret = secret
   }
 
+  async getWXACode ({ path, width } = {}) {
+    const { data } = await axios.request({
+      method: 'POST',
+      url: `https://api.weixin.qq.com/wxa/getwxacode?access_token=${(await this.getAccessToken())['access_token']}`,
+      params: { path, width }
+    })
+
+    return data
+  }
+
+  async getAccessToken () {
+    const { data } = await axios.request({
+      method: 'GET',
+      url: 'https://api.weixin.qq.com/cgi-bin/token',
+      params: {
+        appid: this.appid,
+        secret: this.secret,
+        grant_type: 'client_credential'
+      }
+    })
+
+    return data
+  }
+
   async codeToSession ({ code }) {
-    const requestRes = await axios.request({
+    const { data } = await axios.request({
       method: 'GET',
       url: 'https://api.weixin.qq.com/sns/jscode2session',
       params: {
@@ -19,7 +43,7 @@ module.exports = class Auth {
       }
     })
 
-    return requestRes.data
+    return data
   }
 
   decryptData ({ sessionKey, encryptedData, iv }) {
