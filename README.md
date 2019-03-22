@@ -19,7 +19,7 @@ Auth
 
 ```js
 const codeToSessionRes = await auth.codeToSession({ code })
-const decryptData = auth.decryptData({
+const decryptedData = auth.decryptData({
   sessionKey,
   encryptedData,
   iv
