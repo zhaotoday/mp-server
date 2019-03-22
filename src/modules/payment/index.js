@@ -18,7 +18,7 @@ module.exports = class Pay {
     return md5(querystring).toUpperCase()
   }
 
-  async createUnifiedOrder (options = {}) {
+  async requestPayment (options = {}) {
     const { appid, mch_id, key } = this
     const nonce_str = helpers.getNonceString(32)
     const trade_type = 'JSAPI'
@@ -39,10 +39,8 @@ module.exports = class Pay {
     }
 
     return {
-      payment: {
-        paySign: this.sign({ key, appId: this.appid, ...paymentParams }),
-        ...paymentParams
-      },
+      paySign: this.sign({ key, appId: this.appid, ...paymentParams }),
+      ...paymentParams,
       unifiedOrder
     }
   }
