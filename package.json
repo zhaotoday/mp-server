@@ -1,6 +1,6 @@
 {
   "name": "mp-server",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Server-side utilities for mini-program.",
   "main": "src/index.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "eslint-plugin-standard": "^3.1.0"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "xml2js": "^0.4.19"
   }
 }

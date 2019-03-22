@@ -1,5 +1,4 @@
-const Auth = require('./modules/auth')
-
 module.exports = {
-  Auth
+  Auth: require('./modules/auth'),
+  Pay: require('./modules/pay')
 }
