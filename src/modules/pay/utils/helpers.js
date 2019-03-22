@@ -1,4 +1,3 @@
-const md5 = require('MD5')
 const { promisify } = require('util')
 const xml2js = require('xml2js')
 
@@ -26,12 +25,4 @@ exports.parseXML = async xml => {
   return promisify(parser.parseString)(xml)
 }
 
-exports.sign = params => {
-  const querystring = Object.keys(params)
-      .filter(key => !!params[key] && key !== 'key')
-      .sort()
-      .map(key => `${key}=${params[key]}`)
-      .join('&')
-    + '&key=Afdfgdfawer12324651fdfsggsd3dADF'
-  return md5(querystring).toUpperCase()
-}
+exports.getTimeStamp = () => Math.floor(new Date().getTime() / 1000).toString()
