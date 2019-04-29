@@ -2,9 +2,10 @@ const axios = require('axios')
 const WXBizDataCrypt = require('../../auth/utils/WXBizDataCrypt')
 
 module.exports = class Auth {
-  constructor ({ corpid, corpsecret } = {}) {
+  constructor ({ corpid, corpsecret, appid } = {}) {
     this.corpid = corpid
     this.corpsecret = corpsecret
+    this.appid = appid
   }
 
   async getAccessToken () {
