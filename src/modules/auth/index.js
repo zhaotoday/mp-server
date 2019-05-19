@@ -46,7 +46,7 @@ module.exports = class Auth {
     return data
   }
 
-  decryptData ({ sessionKey, encryptedData, iv }) {
+  getDecryptedData ({ sessionKey, encryptedData, iv }) {
     return new WXBizDataCrypt(this.appid, sessionKey)
       .decryptData(encryptedData, iv)
   }
