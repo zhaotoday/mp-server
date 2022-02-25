@@ -1,4 +1,4 @@
-const md5 = require('MD5')
+const md5 = require('md5')
 const axios = require('axios')
 const helpers = require('./utils/helpers')
 

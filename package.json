@@ -1,6 +1,6 @@
 {
   "name": "mp-server",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Server-side utilities for mini-program.",
   "main": "src/index.js",
   "scripts": {
